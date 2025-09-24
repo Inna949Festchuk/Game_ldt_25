@@ -4,4 +4,4 @@
 4. source venv/bin/activate
 5. pip install -r requirements.txt
 6. python manage.py runserver
-7. В браузере открыть http:localhost:8000
+7. В браузере открыть python manage.py runserver 0.0.0.0:8000
