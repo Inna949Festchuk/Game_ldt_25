@@ -20,9 +20,14 @@ docker-compose up -d
 ```
 4. Переходим в браузере `http://IP-адрес вашего сервера/`
    
-5. Выгружаем сервис
+5. Выгружаем сервис с удалением томов
 ```bash
-docker-compose down
+docker-compose down -v
+```
+
+6. Удаляем старые контейнеры если что-то пошло совсем не так :
+```bash
+docker system prune -a --volumes --force
 ```
 
 ---

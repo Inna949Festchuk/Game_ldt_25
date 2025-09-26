@@ -2,3 +2,5 @@ venv
 *.zip
 __pycache__
 staticfiles/
+index-.html
+indexYa.html
