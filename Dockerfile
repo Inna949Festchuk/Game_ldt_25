@@ -18,8 +18,8 @@ COPY . /app/
 # Собираем статические файлы
 RUN python manage.py collectstatic --noinput
 
-# Применяем миграции
-# RUN python manage.py migrate
+# Создаем и применяем миграции
+RUN python manage.py makemigrations && python manage.py migrate
 
 # Открываем порт, на котором будет работать Gunicorn
 EXPOSE 8000
