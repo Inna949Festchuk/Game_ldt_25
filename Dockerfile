@@ -19,11 +19,13 @@ COPY . /app/
 RUN python manage.py collectstatic --noinput --clear 
 
 # Создаем и применяем миграции
-RUN python manage.py makemigrations && python manage.py migrate
+# RUN python manage.py makemigrations && python manage.py migrate
 
 # Открываем порт, на котором будет работать Gunicorn
 EXPOSE 8000
 
-# Запускаем Gunicorn
-CMD ["gunicorn", "nerpa.wsgi:application", "--bind", "0.0.0.0:8000"]
+# Создаем и применяем миграции. Запускаем Gunicorn
+CMD sh -c "python manage.py makemigrations && \
+        python manage.py migrate && \
+        gunicorn nerpa.wsgi:application --bind 0.0.0.0:8000"
 # CMD ["gunicorn", "nerpa.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]

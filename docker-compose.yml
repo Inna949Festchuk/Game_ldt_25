@@ -17,7 +17,11 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf # Конфиг nginx
+      # Монтируем конфигурацию Nginx
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      # Монтируем директорию с SSL сертификатами
+      - ./nginx/ssl:/etc/nginx/ssl
+      # Общий том со статическими файлами
       - static_volume:/app/staticfiles
       # - media_volume:/app/media # Отключаем медиафайлы
     depends_on:
