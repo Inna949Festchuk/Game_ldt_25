@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from appnerpa.views import startgame
+from appnerpa.views import index, one_c_handler
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', startgame)
+    path('', index, name='index'),
+    path('one-c/default/index', one_c_handler, name='one_c_handler'),
 ]
