@@ -27,5 +27,5 @@ EXPOSE 8000
 # Создаем и применяем миграции. Запускаем Gunicorn
 CMD sh -c "python manage.py makemigrations && \
         python manage.py migrate && \
-        gunicorn --forwarded-allow-ips="*" nerpa.wsgi:application --bind 0.0.0.0:8000"
+        gunicorn nerpa.wsgi:application --bind 0.0.0.0:8000"
 # CMD ["gunicorn", "nerpa.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
