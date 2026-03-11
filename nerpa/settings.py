@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Дополнительные директории, где Django будет искать статические файлы.
-# Указываем на корень папки webgl, т.к. Django рекурсивно найдет все файлы внутри.
+# Указываем на корень папки static, т.к. Django рекурсивно найдет все файлы внутри.
 STATICFILES_DIRS = [
     # BASE_DIR / 'appnerpa/static',
     BASE_DIR / 'appnerpa' / 'static'
@@ -136,6 +136,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Запрещаем кросс-доменные запросы
 # CSRF_TRUSTED_ORIGINS = [
 #     'http://localhost:8000',
 # ]
